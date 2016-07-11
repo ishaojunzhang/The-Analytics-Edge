@@ -1,5 +1,7 @@
 # Notes of MITx: 15.071x The Analytics Edge
 
+This course is taught based on R and is relatively easy, but it is still worth taking. Here I listed some useful points that are not covered in the courses I have taken.
+
 ## An Introduction to Analytics
 
 table()
