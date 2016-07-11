@@ -12,7 +12,12 @@ tapply()
 
 ## Linear Regression
 
-out-of-sample R squared for testing, which can be negative
+out-of-sample R squared is used for testing and it can be negative.
+```
+SSE = sum((Y_test - Y_pred)^2)
+SST = sum((Y_test - mean(Y_train))^2)
+R^2 = 1 - SSE / SST
+```
 
 na.omit()
 >na.omit returns the object with incomplete cases removed.
