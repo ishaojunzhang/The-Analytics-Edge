@@ -14,8 +14,8 @@ This course is taught based on R and is relatively easy. However, it is still wo
 
 out-of-sample R squared is used for testing and it can be negative.
 ```r
-SSE = sum((Y_test - Y_pred)^2)
-SST = sum((Y_test - mean(Y_train))^2)
+SSE = sum((test$y - pred)^2)
+SST = sum((test$y - mean(train$y))^2)
 RSquared = 1 - SSE / SST
 ```
 `subset()`
@@ -27,10 +27,25 @@ RSquared = 1 - SSE / SST
 `na.omit()`
 >na.omit returns the object with incomplete cases removed.
 
+`sample.split()` in `caTools`
+>Split data from vector Y into two sets in predefined ratio while preserving relative ratios of different labels in Y. Used to split the data used during classification into train and test subsets.
+
+```r
+spl = sample.split(data$class, SplitRatio = 0.7)
+train = subset(data, spl == TRUE)
+test = subset(data, spl == FALSE)
+```
+
 `coredata()` in `zoo`
 >Generic functions for extracting the core data contained in a (more complex) object and replacing it.
 
 It can be used to avoid explicitly transforming data types such as using as.vector().
+
+`mice()` in `mice`
+>Generates Multivariate Imputations by Chained Equations (MICE)
+
+`complete()` in `mice
+>Takes an object of class mids, fills in the missing data, and returns the completed data in a specified format.`
 
 ## Logistic Regression
 definition of [sensitivity, specificity and accuracy](https://en.wikipedia.org/wiki/Sensitivity_and_specificity)
@@ -45,4 +60,34 @@ interpretation of auc
 `performance()` in `ROCR`
 >All kinds of predictor evaluations are performed using this function.
 
+```r
+LogModel = glm(formula, data = train, family = "binomial")
+pred = predict(LogModel, newdata = test, type = "response")
+predObj = prediction(pred, test$class)
+auc = as.numeric(performance(predObj, "auc")@y.vallues)
+perf = performance(predObj, "tpr", "fpr")
+plot(perf) # roc curve
+```
+
 Sometimes the accuracy will not improve a lot compared to a baseline prediction (always predicting the majority), but the model is still valuable since it gives more information and different cutoffs can be used in different situations. The quality of the model is mainly evaluated by auc.
+
+##Trees
+`rpart()` in `rpart` and `prp()` in `rpart.plot`
+
+```r
+tree = rpart(formula, data = train, method="class", minbucket=25) # classification
+tree = rpart(formula, data = train, minbucket=25) # regression
+prp(tree)
+pred = predict(tree, newdata = test, type = "class") # labels
+pred = predict(tree, newdata = test) # probabilities
+predObj = prediction(pred[, 2], test$class) # for roc or auc
+```
+
+`train()` in `caret` and `e1071`
+```r
+# cross-validation for CART
+numFolds = trainControl(method = "cv", number = 10)
+cpGrid = expand.grid(.cp = seq(0.01,0.5,0.01)) 
+train(formula, data = train, method = "rpart", trControl = numFolds, tuneGrid = cpGrid)
+```
+
