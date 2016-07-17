@@ -102,3 +102,35 @@ It is convenient to use and can save me some code.
 `nchar()`
 >It takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of x.
 Note there is no length() function for string.
+
+
+## Clustering
+```r
+# standardization
+library(caret)
+preproc = preProcess(train)
+normTrain = predict(preproc, train)
+normTest = predict(preproc, test)
+
+# prediction with k-means
+library(flexclust)
+km = kmeans(normTrain, centers = k)
+km.kcca = as.kcca(km, normTrain)
+clusterTrain = predict(km.kcca)
+clusterTest = predict(km.kcca, newdata=normTest)
+```
+
+`rect.hclust()`
+>Draws rectangles around the branches of a dendrogram highlighting the corresponding clusters. First the dendrogram is cut at a certain level, then a rectangle is drawn around selected branches.
+It helps visualize the sizes of clusters.
+
+`image()`
+>Creates a grid of colored or gray-scale rectangles with colors corresponding to the values in z. This can be used to display three-dimensional or spatial data aka images. This is a generic function.
+
+`dim()`
+>Retrieve or set the dimension of an object.
+It can be used to transform a vector into a matrix.
+
+`split()` 
+>It divides the data in the vector x into the groups defined by f.
+A list is returned and then `lapply()`, `sapply()` often can be used.
