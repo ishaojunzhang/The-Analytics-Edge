@@ -137,16 +137,14 @@ A list is returned and then `lapply()`, `sapply()` often can be used.
 
 
 ## Visualization
-[`ggplot2`](http://docs.ggplot2.org/current/) docuemntation
+[`ggplot2`](http://docs.ggplot2.org/current/) documentation
 
 `ggmap()`
 >It plots the raster object produced by `get_map()`.
 
-`factor()`
-It can be used to order factor levels.
+`factor()` can be used to reorder factor levels.
 
-`strptime()`
-It can be used to extract time and date from a string.
+`strptime()` can be used to extract time and date from a string.
 
 `weekdays()`
 >Extract the weekday, month or quarter, or the Julian time (days since some origin). 
