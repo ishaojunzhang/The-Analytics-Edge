@@ -134,3 +134,19 @@ It can be used to transform a vector into a matrix.
 `split()` 
 >It divides the data in the vector x into the groups defined by f.
 A list is returned and then `lapply()`, `sapply()` often can be used.
+
+
+## Visualization
+[`ggplot2`](http://docs.ggplot2.org/current/) docuemntation
+
+`ggmap()`
+>It plots the raster object produced by `get_map()`.
+
+`factor()`
+It can be used to order factor levels.
+
+`strptime()`
+It can be used to extract time and date from a string.
+
+`weekdays()`
+>Extract the weekday, month or quarter, or the Julian time (days since some origin). 
