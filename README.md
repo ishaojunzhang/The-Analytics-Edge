@@ -148,3 +148,7 @@ A list is returned and then `lapply()`, `sapply()` often can be used.
 
 `weekdays()`
 >Extract the weekday, month or quarter, or the Julian time (days since some origin). 
+
+
+## Linear Optimization
+solver in Excel
