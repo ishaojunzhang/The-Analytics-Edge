@@ -24,7 +24,6 @@ SST = sum((test$y - mean(train$y))^2)
 RSquared = 1 - SSE / SST
 ```
 
-```
 `subset()`
 >Return subsets of vectors, matrices or data frames which meet conditions.
 
