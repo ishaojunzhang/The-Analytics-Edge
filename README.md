@@ -130,10 +130,12 @@ It helps visualize the sizes of clusters.
 
 `dim()`
 >Retrieve or set the dimension of an object.
+
 It can be used to transform a vector into a matrix.
 
 `split()` 
 >`split` divides the data in the vector x into the groups defined by f.
+
 A list is returned and then `lapply()`, `sapply()` often can be used.
 
 
