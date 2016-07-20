@@ -4,7 +4,7 @@ This course is taught based on R and is relatively easy. However, it is still wo
 
 ## An Introduction to Analytics
 `table()`
->table uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels.
+>`table` uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels.
 
 `tapply()`
 >Apply a function to each cell of a ragged array, that is to each (non-empty) group of values given by a unique combination of the levels of certain factors.
@@ -31,7 +31,7 @@ RSquared = 1 - SSE / SST
 >Select a formula-based model by AIC.
 
 `na.omit()`
->na.omit returns the object with incomplete cases removed.
+>`na.omit` returns the object with incomplete cases removed.
 
 `coredata()` in `zoo`
 >Generic functions for extracting the core data contained in a (more complex) object and replacing it.
@@ -41,7 +41,7 @@ It can be used to avoid explicitly transforming data types such as using as.vect
 `mice()` in `mice`
 >Generates Multivariate Imputations by Chained Equations (MICE)
 
-`complete()` in `mice
+`complete()` in `mice`
 >Takes an object of class mids, fills in the missing data, and returns the completed data in a specified format.`
 
 
@@ -96,10 +96,12 @@ names(dataSparse) = make.names(names(dataSparse))
 
 `ifelse()`
 >ifelse returns a value with the same shape as test which is filled with elements selected from either yes or no depending on whether the element of test is TRUE or FALSE.
+
 It is convenient to use and can save me some code.
 
 `nchar()`
->It takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of x.
+>`nchar` takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of x.
+
 Note there is no length() function for string.
 
 
@@ -131,7 +133,7 @@ It helps visualize the sizes of clusters.
 It can be used to transform a vector into a matrix.
 
 `split()` 
->It divides the data in the vector x into the groups defined by f.
+>`split` divides the data in the vector x into the groups defined by f.
 A list is returned and then `lapply()`, `sapply()` often can be used.
 
 
@@ -139,7 +141,7 @@ A list is returned and then `lapply()`, `sapply()` often can be used.
 [`ggplot2`](http://docs.ggplot2.org/current/) documentation
 
 `ggmap()`
->It plots the raster object produced by `get_map()`.
+>`ggmap` plots the raster object produced by `get_map()`.
 
 `factor()` can be used to reorder factor levels.
 
